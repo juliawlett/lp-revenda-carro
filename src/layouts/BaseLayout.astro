@@ -1,0 +1,31 @@
+---
+import "../styles/global.css";
+
+const {
+  title = "TP Veículos | Seu próximo carro em Cuiabá",
+  description = "Seu próximo carro começa com uma conversa. Conheça a TP Veículos em Cuiabá: busca personalizada, usado na troca sob avaliação e financiamento com banco parceiro.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#d9232e" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content="TP Veículos | Seu próximo carro começa aqui" />
+    <meta property="og:description" content="Primeiro carro, família ou trabalho. Conte o que procura e deixe a TP buscar opções para você em Cuiabá." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script src="/script.js" defer></script>
+  </head>
+  <body id="topo">
+    <slot />
+  </body>
+</html>
