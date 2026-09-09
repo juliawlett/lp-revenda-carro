@@ -186,6 +186,16 @@ h1 > span { display: block; margin-top: 14px; font-size: 35px; font-weight: 700;
 .checklist-items article > span { color: var(--red); font-size: 12px; font-weight: 700; padding-top: 4px; }
 .checklist-items h3 { font-size: 18px; margin-bottom: 10px; }
 .checklist-items p { font-size: 13px; }
+.compare { background: #fff; }
+.compare-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 18px; }
+.compare-card { position: relative; min-width: 0; padding: 24px; border: 1px solid var(--line); border-radius: 6px; background: linear-gradient(180deg,#fff,#f7f8f9); transition: border-color .35s, transform .45s var(--ease), box-shadow .45s var(--ease); }
+.compare-card::before { content: ""; position: absolute; inset: -1px -1px auto; height: 3px; background: var(--red); transform: scaleX(0); transform-origin: left; transition: transform .55s var(--ease); }
+.compare-card:hover { border-color: #c8ccd1; box-shadow: 0 12px 30px #2022230a; transform: translateY(-4px); }
+.compare-card:hover::before { transform: scaleX(1); }
+.compare-card > span { display: block; color: var(--red); font-size: 11px; font-weight: 800; margin-bottom: 34px; }
+.compare-card h3 { font-size: 18px; margin-bottom: 12px; }
+.compare-card p { font-size: 12px; line-height: 1.85; }
+.compare-action { margin-top: 30px; text-align: center; }
 .faq { background: var(--paper); }
 .faq .outline { margin-top: 24px; }
 .faq-list { border-top: 1px solid #cdd1d5; }
@@ -344,6 +354,7 @@ body.enhanced .hero-content { animation: hero-enter .9s var(--ease) both; }
   .statement-number > span { font-size: 46px; }
   .about-statement h3 { font-size: 22px; }
   .benefit-grid { grid-template-columns: 1fr 1fr; }
+  .compare-grid { grid-template-columns: 1fr 1fr; }
   .benefit-card h3 { min-height: 0; }
   .process-list { gap: 22px; }
   .process-list h3 { font-size: 14px; }
@@ -384,6 +395,8 @@ body.enhanced .hero-content { animation: hero-enter .9s var(--ease) both; }
   .trust-grid > span { font-size: 10px; gap: 8px; }
   .trust-grid .icon { width: 18px; height: 18px; }
   .finder-section { padding-block: 32px; }
+  .finder-section { background: #fff; }
+  .finder-section .container { padding: 20px; border: 1px solid var(--line); border-radius: 6px; box-shadow: 0 16px 36px #2022230a; }
   .finder-heading { display: block; margin-bottom: 20px; }
   .finder-heading h2 { font-size: 22px; }
   .finder-heading > p { margin-top: 8px; font-size: 12px; }
@@ -409,6 +422,10 @@ body.enhanced .hero-content { animation: hero-enter .9s var(--ease) both; }
   .statement-number { font-size: 88px; }
   .about-statement h3 { font-size: 25px; }
   .benefit-grid { grid-template-columns: 1fr; gap: 16px; }
+  .compare-grid { grid-template-columns: 1fr; gap: 16px; }
+  .compare-card { padding: 22px; }
+  .compare-card > span { margin-bottom: 22px; }
+  .compare-action { text-align: left; margin-top: 24px; }
   .benefit-card { padding: 24px; }
   .benefit-card > .icon { margin-bottom: 18px; }
   .benefit-card h3 { font-size: 20px; }
@@ -447,6 +464,16 @@ body.enhanced .hero-content { animation: hero-enter .9s var(--ease) both; }
   .footer-grid h3 { margin-bottom: 15px; }
   .footer-bottom { display: grid; gap: 10px; }
   .floating-contact { right: 16px; bottom: max(16px,env(safe-area-inset-bottom)); min-height: 50px; padding: 12px 14px; font-size: 11px; }
+  body.enhanced .split-heading.reveal,
+  body.enhanced .checklist .section-heading.reveal,
+  body.enhanced .faq .section-heading.reveal,
+  body.enhanced .location-grid > .reveal:first-child,
+  body.enhanced .about-statement.reveal,
+  body.enhanced .finance-content.reveal,
+  body.enhanced .map-wrap.reveal,
+  body.enhanced .faq-list.reveal {
+    transform: translate3d(0,28px,0);
+  }
 }
 @media (max-width: 360px) {
   .container { width: calc(100% - 32px); }
